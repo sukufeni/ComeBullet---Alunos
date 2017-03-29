@@ -38,6 +38,7 @@
             // timer2
             // 
             this.timer2.Enabled = true;
+            this.timer2.Interval = 10;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // menuStrip1
@@ -68,6 +69,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "BulletEater";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.DoubleClick += new System.EventHandler(this.Form1_DoubleClick);

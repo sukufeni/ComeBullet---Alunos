@@ -28,6 +28,10 @@ namespace ComeBullet
         {
             
         }
+        public Image retornaImagem()
+        {
+            return this.figura;
+        }
 
     }
 }

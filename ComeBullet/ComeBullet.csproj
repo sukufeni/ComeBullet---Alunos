@@ -74,6 +74,8 @@
     </Compile>
     <Compile Include="GameObject.cs" />
     <Compile Include="ListaBola.cs" />
+    <Compile Include="ListaLixo.cs" />
+    <Compile Include="Lixo.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -9,6 +9,7 @@ namespace ComeBullet
     {
         public Bullet obj;
         public Node prox;
+        public Lixo lixo;
 
         public Node(Bullet Obj, Node Prox)
         {
@@ -18,6 +19,7 @@ namespace ComeBullet
         public Node()
         {
             obj = null;
+            lixo = null;
             prox = null;
         }
     }

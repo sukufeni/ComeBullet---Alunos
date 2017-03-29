@@ -7,7 +7,7 @@ namespace ComeBullet
 {
     class ListaBola
     {
-        Node sentinela,ultimo;
+        Node sentinela;
 
         internal Node Sentinela { get => this.sentinela; set => this.sentinela = value; }
 
@@ -15,27 +15,16 @@ namespace ComeBullet
         { 
             Node x = new Node();
             Sentinela = x;
-            ultimo = sentinela;
         }
         public void insereFinal(Bullet obj)
         {
-            if(Sentinela == null)
+            Node aux = sentinela;
+            while (aux.prox != null)
             {
-                Node aux = new Node(obj, null);
-                Sentinela.prox = aux;
-                ultimo = aux;
+                aux = aux.prox;
             }
-            else
-            {
-                Node aux = Sentinela;
-                while (aux.prox != null)
-                {
-                    aux = aux.prox;
-                }
-                Node novo = new Node(obj, null);
-                aux.prox = novo;
-                ultimo = aux;
-            }
+            Node novo = new Node(obj, null);
+            aux.prox = novo;
         }
 
         public Bullet percorrerLista()
@@ -52,50 +41,21 @@ namespace ComeBullet
         {
             return Sentinela;
         }
-        public Node retiraItem(Node item)
+        public Bullet retiraItem(Bullet item)
         {
-            Node aux = this.Sentinela;
-                while(aux.prox != null)
-                {
-                    if(item != null)
-                    {
-                        if (aux.prox.obj == item.obj)
-                        {
-                            Node aux2 = aux.prox;
-                            aux.prox = aux2.prox;
-                            aux2.obj.apagar();
-                            aux2.prox = null;
-                            return aux;
-                        }
-                        else
-                        {
-                            aux = aux.prox;
-                        }   
-                    }
-                    else return null;
-                }
-            return aux;
-        }
-        public Node busca(Character item)
-        {
-            Node aux = new Node(sentinela.obj, null);
-            aux = sentinela.prox;
-            if(aux == this.ultimo)
+            Node aux = sentinela;
+            while (aux.prox != null)
             {
-
-            }
-            else
-            {
-                while (aux.prox != null)
+                Node aux2 = aux;
+                aux = aux.prox;
+                if (aux.obj == item)
                 {
-                    if (item.sobreposicao(aux.obj))
-                    {
-                        return aux;
-                    }
-                    aux = aux.prox;
+                    aux2.prox = aux.prox;
+                    aux.prox = null;
+                    return aux.obj;
                 }
-                return null;
             }
+            return null;
         }
     }
 }
